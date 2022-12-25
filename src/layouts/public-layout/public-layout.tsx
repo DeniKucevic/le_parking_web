@@ -1,7 +1,8 @@
 import { Container } from "@mantine/core";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
-export const LayoutPage = () => {
+export const PublicLayout = () => {
+  const auth = false;
   return (
     <Container
       fluid
@@ -11,6 +12,7 @@ export const LayoutPage = () => {
         padding: 0,
       }}
     >
+      {!auth ? <Navigate to="/dashboard" /> : <Outlet />}
       <Outlet />
     </Container>
   );

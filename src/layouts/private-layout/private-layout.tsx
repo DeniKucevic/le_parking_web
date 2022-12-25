@@ -1,11 +1,9 @@
 import { AppShell, Navbar, Header } from "@mantine/core";
+import { Navigate, Outlet } from "react-router-dom";
 import { HeaderMenu } from "../../components";
 
-type PrivateLayoutProps = {
-  children: React.ReactElement;
-};
-
-export const PrivateLayout: React.FC<PrivateLayoutProps> = ({ children }) => {
+export const PrivateLayout: React.FC = () => {
+  const auth = false;
   return (
     <AppShell
       padding="md"
@@ -28,7 +26,8 @@ export const PrivateLayout: React.FC<PrivateLayoutProps> = ({ children }) => {
         },
       })}
     >
-      {children}
+      {!auth ? <Outlet /> : <Navigate to="/login" />}
+      <Outlet />
     </AppShell>
   );
 };
