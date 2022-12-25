@@ -3,7 +3,7 @@ import React from "react";
 import { ThemeProvider } from "./theme/theme-provider";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import { LandingPage, LoginPage, NotFoundPage } from "./pages";
+import { DashboardPage, LandingPage, LoginPage, NotFoundPage } from "./pages";
 
 import { PrivateLayout, PublicLayout } from "./layouts";
 
@@ -20,7 +20,7 @@ function App() {
           </Route>
 
           <Route path="/dashboard" element={<PrivateLayout />}>
-            <Route index element={<LandingPage />} />
+            <Route index element={<DashboardPage />} />
             <Route path="login" element={<LoginPage />} />
           </Route>
 

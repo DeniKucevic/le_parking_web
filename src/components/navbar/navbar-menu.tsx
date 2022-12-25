@@ -134,7 +134,7 @@ export const NavbarMenu = () => {
       <Navbar.Section className={classes.header}>
         <Group position="apart">
           <Avatar src={LeParkingLogo} alt="it's me" />
-          <Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
+          <Code sx={{ fontWeight: 700 }}>v0.0.0</Code>
         </Group>
       </Navbar.Section>
 

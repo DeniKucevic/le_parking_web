@@ -5,17 +5,15 @@ import {
   Center,
   Burger,
   Container,
-  Avatar,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
-import { LeParkingLogo } from "../../assets";
 
 const useStyles = createStyles((theme) => ({
   inner: {
-    height: 56,
+    height: 40,
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "end",
     alignItems: "center",
   },
 
@@ -71,7 +69,7 @@ export function HeaderMenu() {
 
   const links: HeaderSearchProps["links"] = [
     { link: "pew", label: "pew", links: [{ link: "a", label: "b" }] },
-    { link: "pew", label: "pew"},
+    { link: "pew", label: "pew" },
   ];
 
   const items = links.map((link) => {
@@ -114,7 +112,6 @@ export function HeaderMenu() {
   return (
     <Container>
       <div className={classes.inner}>
-        <Avatar src={LeParkingLogo} alt="it's me" />
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>

@@ -13,7 +13,6 @@ export const PublicLayout = () => {
       }}
     >
       {!auth ? <Navigate to="/dashboard" /> : <Outlet />}
-      <Outlet />
     </Container>
   );
 };

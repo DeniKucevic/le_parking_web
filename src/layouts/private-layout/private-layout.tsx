@@ -13,11 +13,11 @@ export const PrivateLayout: React.FC = () => {
           <NavbarMenu />
         </Navbar>
       }
-      header={
-        <Header height={60} p="xs">
-          <HeaderMenu />
-        </Header>
-      }
+      // header={
+      //   <Header height={60} p="xs">
+      //     <HeaderMenu />
+      //   </Header>
+      // }
       styles={(theme) => ({
         main: {
           backgroundColor:
@@ -28,7 +28,6 @@ export const PrivateLayout: React.FC = () => {
       })}
     >
       {!auth ? <Outlet /> : <Navigate to="/login" />}
-      <Outlet />
     </AppShell>
   );
 };
