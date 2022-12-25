@@ -61,13 +61,18 @@ type HeaderSearchProps = {
   links: {
     link: string;
     label: string;
-    links: { link: string; label: string }[];
+    links?: { link: string; label: string }[];
   }[];
 };
 
-export function HeaderMenu({ links }: HeaderSearchProps) {
+export function HeaderMenu() {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
+
+  const links: HeaderSearchProps["links"] = [
+    { link: "pew", label: "pew", links: [{ link: "a", label: "b" }] },
+    { link: "pew", label: "pew"},
+  ];
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
@@ -109,7 +114,7 @@ export function HeaderMenu({ links }: HeaderSearchProps) {
   return (
     <Container>
       <div className={classes.inner}>
-        <Avatar src={LeParkingLogo} alt="it's me" />{" "}
+        <Avatar src={LeParkingLogo} alt="it's me" />
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
