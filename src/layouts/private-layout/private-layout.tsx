@@ -1,7 +1,6 @@
 import { AppShell, Navbar, Header } from "@mantine/core";
 import { Navigate, Outlet } from "react-router-dom";
-import { HeaderMenu } from "../../components";
-import { NavbarMenu } from "../../components/navbar/navbar-menu";
+import { NavbarMenu } from "../../components/navbar-menu";
 
 export const PrivateLayout: React.FC = () => {
   const auth = false;
