@@ -77,7 +77,7 @@ export const LandingPage = () => {
   const navigate = useNavigate();
 
   const handleGetStartedClick = () => {
-    navigate("/login");
+    navigate("/auth");
   };
 
   return (

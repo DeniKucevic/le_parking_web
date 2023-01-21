@@ -1,9 +1,10 @@
-import { AppShell, Navbar, Header } from "@mantine/core";
+import { AppShell, Navbar } from "@mantine/core";
 import { Navigate, Outlet } from "react-router-dom";
 import { NavbarMenu } from "../../components/navbar-menu";
 
-export const PrivateLayout: React.FC = () => {
-  const auth = false;
+export const PrivateLayout: React.FC<{ isAuthenticated: boolean }> = ({
+  isAuthenticated,
+}) => {
   return (
     <AppShell
       padding="md"
@@ -26,7 +27,7 @@ export const PrivateLayout: React.FC = () => {
         },
       })}
     >
-      {!auth ? <Outlet /> : <Navigate to="/login" />}
+      {isAuthenticated ? <Outlet /> : <Navigate to="/auth" />}
     </AppShell>
   );
 };

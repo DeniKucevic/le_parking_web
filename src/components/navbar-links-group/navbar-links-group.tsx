@@ -14,6 +14,7 @@ import {
   IconChevronLeft,
   IconChevronRight,
 } from "@tabler/icons";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   control: {
@@ -63,30 +64,39 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface LinksGroupProps {
+type LinksGroupProps = {
   icon: TablerIcon;
   label: string;
   initiallyOpened?: boolean;
   links?: { label: string; link: string }[];
-}
+};
 
-export function LinksGroup({
+export const LinksGroup = ({
   icon: Icon,
   label,
   initiallyOpened,
   links,
-}: LinksGroupProps) {
+}: LinksGroupProps) => {
+  const navigate = useNavigate();
   const { classes, theme } = useStyles();
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened || false);
   const ChevronIcon = theme.dir === "ltr" ? IconChevronRight : IconChevronLeft;
+
+  const handleNavigationClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    navigate("settings");
+  };
+
   const items = (hasLinks ? links : []).map((link) => (
     <Text<"a">
       component="a"
       className={classes.link}
       href={link.link}
       key={link.label}
-      onClick={(event) => event.preventDefault()}
+      onClick={handleNavigationClick}
     >
       {link.label}
     </Text>
@@ -122,7 +132,7 @@ export function LinksGroup({
       {hasLinks ? <Collapse in={opened}>{items}</Collapse> : null}
     </>
   );
-}
+};
 
 const mockdata = {
   label: "Releases",

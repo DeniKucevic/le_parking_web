@@ -13,6 +13,7 @@ import {
   IconSubtask,
 } from "@tabler/icons";
 import { LeParkingLogo } from "../../assets";
+import { useSignOut } from "../../hooks/auth/use-sign-out";
 import { LinksGroup } from "../navbar-links-group";
 
 const mockdata = [
@@ -35,7 +36,7 @@ const mockdata = [
     label: "Managment",
     icon: IconSubtask,
     links: [
-      { label: "Settings", link: "/" },
+      { label: "Settings", link: "/settings" },
       { label: "Parkings", link: "/" },
       { label: "Users", link: "/" },
       { label: "Reservation rules", link: "/" },
@@ -125,6 +126,12 @@ const useStyles = createStyles((theme, _params, getRef) => {
 
 export const NavbarMenu = () => {
   const { classes } = useStyles();
+  const [_, execute] = useSignOut();
+
+  const handleLogOut = () => {
+    execute();
+  };
+
   const links = mockdata.map((item) => (
     <LinksGroup {...item} key={item.label} />
   ));
@@ -143,11 +150,7 @@ export const NavbarMenu = () => {
       </Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
-        >
+        <a href="#" className={classes.link} onClick={handleLogOut}>
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </a>

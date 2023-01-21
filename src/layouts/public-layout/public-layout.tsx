@@ -1,8 +1,9 @@
 import { Container } from "@mantine/core";
 import { Navigate, Outlet } from "react-router-dom";
 
-export const PublicLayout = () => {
-  const auth = false;
+export const PublicLayout: React.FC<{ isAuthenticated: boolean }> = ({
+  isAuthenticated,
+}) => {
   return (
     <Container
       fluid
@@ -12,7 +13,7 @@ export const PublicLayout = () => {
         padding: 0,
       }}
     >
-      {!auth ? <Navigate to="/dashboard" /> : <Outlet />}
+      {isAuthenticated ? <Navigate to="/dashboard" /> : <Outlet />}
     </Container>
   );
 };
