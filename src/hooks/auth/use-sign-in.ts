@@ -7,7 +7,7 @@ import {
 import { AuthError } from "@supabase/supabase-js";
 import { useCallback, useState } from "react";
 
-import { useClient } from "../use-client";
+import { useClient } from "@hooks";
 import { initialState } from "./state";
 
 export type UseSignInState = {

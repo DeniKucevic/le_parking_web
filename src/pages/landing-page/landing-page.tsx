@@ -9,7 +9,7 @@ import {
 
 import { useNavigate } from "react-router-dom";
 
-import { HeroPageImage } from "../../assets";
+import { HeroPageImage } from "@assets";
 
 const useStyles = createStyles((theme) => ({
   hero: {

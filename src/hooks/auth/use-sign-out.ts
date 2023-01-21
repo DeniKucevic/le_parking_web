@@ -1,7 +1,7 @@
 import { AuthError } from "@supabase/supabase-js";
 import { useCallback, useState } from "react";
 
-import { useClient } from "../use-client";
+import { useClient } from "@hooks";
 
 export type UseSignOutState = {
   error?: AuthError | null;

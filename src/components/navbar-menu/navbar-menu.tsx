@@ -12,9 +12,9 @@ import {
   IconUser,
   IconSubtask,
 } from "@tabler/icons";
-import { LeParkingLogo } from "../../assets";
-import { useSignOut } from "../../hooks/auth/use-sign-out";
-import { LinksGroup } from "../navbar-links-group";
+import { LeParkingLogo } from "@assets";
+import { useSignOut } from "@hooks";
+import { LinksGroup } from "@components";
 
 const mockdata = [
   {

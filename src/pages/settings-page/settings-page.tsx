@@ -1,5 +1,5 @@
 import { Center } from "@mantine/core";
-import { ThemeSwitch } from "../../components";
+import { ThemeSwitch } from "@components";
 
 export const SettingsPage = () => {
   return (

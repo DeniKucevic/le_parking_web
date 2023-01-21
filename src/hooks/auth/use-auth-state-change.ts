@@ -1,7 +1,7 @@
 import { AuthChangeEvent, Session } from "@supabase/gotrue-js";
 import { useEffect } from "react";
 
-import { useClient } from "../use-client";
+import { useClient } from "@hooks";
 
 export function useAuthStateChange(
   callback: (event: AuthChangeEvent, session: Session | null) => void

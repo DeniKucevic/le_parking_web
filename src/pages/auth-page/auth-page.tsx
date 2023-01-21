@@ -5,8 +5,8 @@ import {
   Image,
   useMantineColorScheme,
 } from "@mantine/core";
-import { useClient } from "../../hooks";
-import { LoginPageImage } from "../../assets";
+import { useClient } from "@hooks";
+import { LoginPageImage } from "@assets";
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useNavigate } from "react-router-dom";
 
