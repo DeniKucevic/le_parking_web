@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { ThemeProvider } from "./theme/theme-provider";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
@@ -23,13 +23,15 @@ const App = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState<Session | null>(null);
 
-  client.auth
-    .getSession()
-    .then((data) => setIsAuthenticated(data.data.session));
+  useEffect(() => {
+    client.auth
+      .getSession()
+      .then((data) => setIsAuthenticated(data.data.session));
 
-  client.auth.onAuthStateChange((_, session) => {
-    setIsAuthenticated(session);
-  });
+    client.auth.onAuthStateChange((_, session) => {
+      setIsAuthenticated(session);
+    });
+  }, []);
 
   return (
     <ThemeProvider>
