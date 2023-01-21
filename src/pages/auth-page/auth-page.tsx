@@ -1,6 +1,11 @@
-import { createStyles, Card, Center, Image } from "@mantine/core";
-import { useState } from "react";
-import { useSignIn, useClient } from "../../hooks";
+import {
+  createStyles,
+  Card,
+  Center,
+  Image,
+  useMantineColorScheme,
+} from "@mantine/core";
+import { useClient } from "../../hooks";
 import { LoginPageImage } from "../../assets";
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +18,7 @@ const useStyles = createStyles((theme) => ({
 
 export const AuthPage = () => {
   const { classes } = useStyles();
+  const { colorScheme } = useMantineColorScheme();
 
   const { auth } = useClient();
   const navigate = useNavigate();
@@ -32,7 +38,7 @@ export const AuthPage = () => {
         <Auth
           supabaseClient={useClient()}
           appearance={{ theme: ThemeSupa }}
-          theme="dark"
+          theme={colorScheme}
           providers={["google", "facebook", "twitter"]}
           redirectTo="http://localhost:5173/dashboard"
         />
